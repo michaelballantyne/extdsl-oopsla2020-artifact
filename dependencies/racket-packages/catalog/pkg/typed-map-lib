@@ -1,0 +1,1 @@
+#hash((author . "") (checksum . "20391ae225895f8f3e65f29c62d3216ef3ee408d") (dependencies . (("base") ("typed-racket-lib"))) (description . "") (modules . ((lib "typed-map/main.rkt"))) (name . "typed-map-lib") (ring . #f) (source . "/root/dependencies/racket-packages/pkgs/typed-map-lib.zip") (tags . ()))

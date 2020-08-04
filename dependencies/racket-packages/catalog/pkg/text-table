@@ -1,0 +1,1 @@
+#hash((author . "") (checksum . "dc9ef0aa2d021e770b0cd1fc748b4de147d0a30f") (dependencies . (("base") ("scribble-lib") ("racket-doc") ("rackunit-lib"))) (description . "") (modules . ((lib "text-table/scribblings/text-table.scrbl") (lib "text-table/main.rkt"))) (name . "text-table") (ring . #f) (source . "/root/dependencies/racket-packages/pkgs/text-table.zip") (tags . ()))

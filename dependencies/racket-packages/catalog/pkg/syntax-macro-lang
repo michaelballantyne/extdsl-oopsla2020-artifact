@@ -1,0 +1,1 @@
+#hash((author . "") (checksum . "faefaabaa1a53ec2370070c7e19f554cd85fe719") (dependencies . (("base"))) (description . "") (modules . ((lib "tests/syntax/macro-lang/the-lang.rkt") (lib "tests/syntax/macro-lang/test.rkt") (lib "syntax/macro-lang.rkt"))) (name . "syntax-macro-lang") (ring . #f) (source . "/root/dependencies/racket-packages/pkgs/syntax-macro-lang.zip") (tags . ()))

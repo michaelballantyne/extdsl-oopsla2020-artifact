@@ -1,0 +1,18 @@
+[submodule "code/dsls/racket-peg-ee"]
+	path = code/dsls/racket-peg-ee
+	url = https://github.com/michaelballantyne/racket-peg-ee.git
+[submodule "code/dsls/type-expander"]
+	path = code/dsls/type-expander
+	url = https://github.com/michaelballantyne/type-expander
+[submodule "code/dsls/racket-rash"]
+	path = code/dsls/racket-rash
+	url = https://github.com/michaelballantyne/racket-rash.git
+[submodule "code/dsls/cmdline-ee"]
+	path = code/dsls/cmdline-ee
+	url = https://github.com/michaelballantyne/cmdline-ee.git
+[submodule "code/dsls/minikanren-ee"]
+	path = code/dsls/minikanren-ee
+	url = https://github.com/michaelballantyne/minikanren-ee.git
+[submodule "code/ee-lib"]
+	path = code/ee-lib
+	url = https://github.com/michaelballantyne/ee-lib.git

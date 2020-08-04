@@ -1,0 +1,1 @@
+#hash((author . "") (checksum . "3905ef50d1574b7191f49728f07efbfbe3990af4") (dependencies . (("base") ("rackunit-lib"))) (description . "") (modules . ((lib "lang-file/read-lang-file.rkt"))) (name . "lang-file-lib") (ring . #f) (source . "/root/dependencies/racket-packages/pkgs/lang-file-lib.zip") (tags . ()))

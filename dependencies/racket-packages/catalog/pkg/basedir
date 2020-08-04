@@ -1,0 +1,1 @@
+#hash((author . "") (checksum . "a386bf9fd4c395944bc080efc013a19895f30f43") (dependencies . (("base") ("scribble-lib") ("racket-doc"))) (description . "") (modules . ((lib "basedir/basedir.scrbl") (lib "basedir/main.rkt"))) (name . "basedir") (ring . #f) (source . "/root/dependencies/racket-packages/pkgs/basedir.zip") (tags . ()))

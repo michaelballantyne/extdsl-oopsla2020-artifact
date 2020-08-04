@@ -1,0 +1,1 @@
+#hash((author . "") (checksum . "11192acdbd3c9a20e46a2c6bf2f8d7a99f7e2d53") (dependencies . (("base") ("racket-doc") ("scribble-lib") ("threading-lib"))) (description . "") (modules . ((lib "scribblings/threading.scrbl"))) (name . "threading-doc") (ring . #f) (source . "/root/dependencies/racket-packages/pkgs/threading-doc.zip") (tags . ()))

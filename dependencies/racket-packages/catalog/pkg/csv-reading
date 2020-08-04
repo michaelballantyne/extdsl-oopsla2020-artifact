@@ -1,0 +1,1 @@
+#hash((author . "") (checksum . "489c2395e64f00e99e03abba7087e11a43159159") (dependencies . (("base") ("mcfly") ("racket-doc") ("scribble-lib") ("overeasy"))) (description . "") (modules . ((lib "csv-reading/csv-reading.scrbl") (lib "csv-reading/main.rkt"))) (name . "csv-reading") (ring . #f) (source . "/root/dependencies/racket-packages/pkgs/csv-reading.zip") (tags . ()))
