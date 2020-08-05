@@ -53,11 +53,16 @@ paper:
 * `ee-lib` is the library that implements our new syntax system API.
 * `dsls` contains the implementations of our case study DSLs. Each DSL
   has a DEVELOPING.md file that describes its code.
-    * Parsing Expression Grammars: `racket-peg-ee`
-    * Command-line argument parsing: `cmdline-ee`
-    * miniKanren logic programming language: `minikanren-ee`
-    * Rash shell language: `racket-rash`
-    * Typed Racket's language of types: `type-expander`
+
+   | Example 	      |	   Directory |
+   | ---------------- | ------------ |
+   | Parsing Expression Grammars | `racket-peg-ee` |
+   | Command-line argument parsing | `cmdline-ee` |
+   | miniKanren logic programming language | `minikanren-ee` |
+   | Rash shell language | `racket-rash` |
+   |  Typed Racket's language of types | `type-expander` |
+
+
 * `examples` contains code for each example in the paper.
 
 The `code` directory is shared between your machine and the Docker
