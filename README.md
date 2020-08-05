@@ -11,8 +11,8 @@ and the Ubuntu 20.04 base Docker image that is downloaded when building
 our artifact's image.
 
 ```
-unzip artifact625.zip
-cd artifact625
+tar -xvjf 625.tar.bz2
+cd 625
 docker build -t artifact625 ./
 docker create -ti --name artifact625 --network none --mount "type=bind,src=${PWD}/code,dst=/root/code" artifact625
 docker start artifact625
