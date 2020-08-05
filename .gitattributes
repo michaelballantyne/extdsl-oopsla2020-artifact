@@ -1,5 +1,5 @@
-.gitignore
-.gitattributes
-.gitmodules
-package-artifact.sh
-dependencies/download-racket.sh
+.gitignore export-ignore
+.gitattributes export-ignore
+.gitmodules export-ignore
+package-artifact.sh export-ignore
+dependencies/download-racket.sh export-ignore
