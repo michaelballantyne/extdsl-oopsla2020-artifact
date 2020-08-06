@@ -1,7 +1,6 @@
 #lang rash
 
 (require csv-reading racket/list)
-
 (read-decimal-as-inexact #f)
 
 cd finances
