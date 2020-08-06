@@ -1,0 +1,1 @@
+("7.7.0.7" racket ("e88a88a409bbbdade0581ebe778bc1594fe73d89" . "19e3dc418eac00179032573eb696570967fd602e") (collects #"minikanren-ee" #"main.rkt") (collects #"racket" #"base.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"rackunit" #"main.rkt"))
