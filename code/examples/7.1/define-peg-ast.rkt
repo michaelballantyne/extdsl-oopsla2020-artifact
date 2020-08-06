@@ -34,9 +34,8 @@
   (lambda (stx)
     (syntax-parse stx
       [(_ peg-name:id ast-name:id p:peg)
-       (define/syntax-parse (_ p^ _) (local-expand-peg #'(=> p (void))))
-       (define/syntax-parse (var ...)
-         (find-parse-var-bindings #'p^))
+       (define/syntax-parse p^ (local-expand-peg #'p))
+       (define/syntax-parse (var ...) (find-parse-var-bindings #'p^))
        #'(begin
            (struct ast-name ast [var ...] #:transparent)
            (define-peg peg-name
