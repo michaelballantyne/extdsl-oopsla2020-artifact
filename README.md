@@ -132,12 +132,14 @@ scope sets algorithm. The program `code/examples/2.2/scopes.rkt` expands
 the example from lines 157-165 to show the real scopes annotated by the
 expander. The scopes that correspond to the figure are as follows:
 
-0: example.rkt
-2: let1
-3: match-list.rkt
-6: macro
-7: let2
-12: let3
+| scope from scopes.rkt output | scope in figure |
+| ---------------------------- | ----------------|
+| 0 | example.rkt |
+| 2 | let1 |
+| 3 | match-list.rkt |
+| 6 | macro |
+| 7 | let2 |
+| 12 | let3 |
 
 The full scope sets algorithm contains a number of optimizations and
 edge cases that make the real scope annotations somewhat different:
