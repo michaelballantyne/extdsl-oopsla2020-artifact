@@ -1,7 +1,7 @@
-#lang racket/base
-(require (except-in racket-peg-ee #%peg-datum)
-         racket-peg-ee/simple-tokens
-         racket-peg-ee/string-token)
+#lang racket
+(require racket-peg-ee)
+
+(use-literal-token-interpretation string-token)
 
 (struct binop-ast [lhs op rhs] #:transparent)
 
@@ -12,8 +12,8 @@
 (define-peg term (predicate-token number?))
 
 (define-peg arith-expr
-            (=> (seq (: e1 term) (* (seq (: op* (alt "+" "-")) (: e* term))))
-                (left-associate-binops e1 op* e*)))
+  (=> (seq (: e1 term) (* (seq (: op* (alt "+" "-")) (: e* term))))
+      (left-associate-binops e1 op* e*)))
 
 (parse arith-expr '(1 "+" 2 "-" 3))
 ;; evaluates to:

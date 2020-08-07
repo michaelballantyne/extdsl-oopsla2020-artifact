@@ -19,9 +19,7 @@
 (test-error
   #rx"arith-expr-leftrec: left recursion through nonterminal"
   (module example racket/base
-    (require (except-in racket-peg-ee #%peg-datum)
-             racket-peg-ee/simple-tokens
-             racket-peg-ee/string-token)
+    (require racket-peg-ee)
 
     (struct binop-ast [lhs op rhs] #:transparent)
 
