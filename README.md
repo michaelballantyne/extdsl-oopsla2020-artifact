@@ -1,10 +1,16 @@
 # Getting started
 
 Our artifact is packaged as sources together with a Dockerfile that
-creates an appropriate execution environment. The following commands
-will unzip the artifact, build a docker image with needed dependencies,
-and launch a container. Note that depending on your Docker configuration
-you may need to run the docker commands as root.
+creates an appropriate execution environment.
+
+First, ensure you have a recent Docker installation. We tested these
+instructions with Docker Desktop 2.3.0.3 on Mac OS 10.14
+(https://www.docker.com/products/docker-desktop).
+
+Then, the following commands will unzip the artifact, build a docker
+image with needed dependencies, and launch a container. Note that
+depending on your Docker configuration you may need to run the docker
+commands as root.
 
 ```
 tar -xvjf 625.tar.bz2
@@ -27,8 +33,7 @@ Finally, this command runs all tests and examples:
 docker exec artifact625 /root/code/test.sh
 ```
 
-We tested these instructions with Docker Desktop 2.3.0.3 on Mac OS
-10.14. The only dependencies beyond those included in the artifact
+The only dependencies beyond those included in the artifact
 archive are Docker and the `ubuntu:20.04` base Docker image that is
 downloaded when building our artifact's image.
 
