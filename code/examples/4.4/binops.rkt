@@ -1,9 +1,9 @@
 #lang racket/base
 
-(require (except-in racket-peg-ee #%peg-datum)
-         racket-peg-ee/simple-tokens
-         racket-peg-ee/string-token
+(require racket-peg-ee
          (for-syntax racket/base syntax/parse))
+
+(use-literal-token-interpretation string-token)
 
 (struct binop-ast [lhs op rhs] #:transparent)
 (struct prefix-ast [op rhs] #:transparent)

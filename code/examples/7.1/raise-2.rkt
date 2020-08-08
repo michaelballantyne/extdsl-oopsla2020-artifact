@@ -1,8 +1,9 @@
 #lang racket/base
 
-(require (except-in racket-peg-ee #%peg-datum)
-         racket-peg-ee/stx-token
+(require racket-peg-ee
          "define-peg-ast.rkt")
+
+(use-literal-token-interpretation syntax-token)
 
 (define-peg test (alt "e1" "e2"))
 
@@ -19,9 +20,9 @@
     (parse-result-value (parse raise example-stx))
     (raise-ast
       (srcloc (syntax-source (car example-stx))
-              16   ; line (1 indexed)
+              17   ; line (1 indexed)
               21   ; column (0 indexed)
-              362  ; character
+              354  ; character
               16)  ; span in characters
       (second example-stx)
       (fourth example-stx))))
