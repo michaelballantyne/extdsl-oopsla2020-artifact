@@ -301,11 +301,86 @@ The version of `keyword` in the artifact thus returns the
 `expected-name` when the token matches, along with `#f` to indicate no
 source location information is available.
 
+The `lexer-tokens` submodule provides the list of Python keywords that
+the paper example imports from a `python-lexer` module.
+
 ### Section 8
 
 #### 8.1
 
+##### miniKanren
+See `code/examples/8.1/minikanren.rkt`.
+
+Our miniKanren implementation returns the results of the query in a
+different order from that shown in the paper. The order is not
+semantically relevant.
+
+##### Rash
+See `code/examples/8.1/rash.rkt`.
+
+The artifact version imports `csv->list` from `csv-reading` and `fourth`
+from `racket/list`. In order to work with decimals as exact numbers, it
+configures the reader with `(read-decimal-as-inexact #f)`, and formats
+the final result with `exact->inexact`.
+
+It is also possible to test the example in the interactive shell. After
+running the build step from "Getting started", run
+`/root/.racket/7.8/bin/rash-repl` in the Docker container to start the
+shell. Change to the `/root/code/examples/8.1` directory and input all
+but the `#lang rash` line.
+
+##### Command-line argument parsing
+See `code/examples/8.1/cmdline.rkt`.
+
+The syntax in the artifact is slightly more verbose because the DSL
+includes more features than demonstrated in the paper. The `#:options`
+keyword specifies that the following clauses concern command-line
+options; additional features such as positional arguments are supported
+by other keywords. The full implementation also uses a naming convention
+where option syntax names end in `/o` and flag syntaxes end in `/f`.
+
+##### Typed Racket
+See `code/examples/8.1/typed-racket.rkt`.
+
 #### 8.2
+
+##### miniKanren
+
+Lines 914-916: see `code/examples/8.2/minikanren-macro.rkt`. The
+`defrel/match` syntax is defined in `code/dsls/minikanren-ee/main.rkt`.
+The presentation in the paper uses a match syntax similar to that
+supported by Racket's `match` form, which we expect to be most familiar
+to readers. The real DSL in the artifact uses a different syntax
+inspired by a pattern matcher written for Chez Scheme.
+
+The compile-time error mentioned on lines 929-930 is tested in
+`code/examples/8.2/minikanren-compile-time-errors.rkt`.
+
+`code/examples/8.2/minikanren-program-transformation.rkt` demonstrates
+the program transformation discussed in the paper at lines 912-950.
+Running the program expands the version of `append` with the recursive
+call in the middle of the two unifications and prints the core language
+syntax after program transformation. In the core syntax, the two
+unifications come before the recursive call. The test also verifies that
+the query from line 945 terminates.
+
+##### Rash
+
+See `code/examples/8.2/rash.rkt`.
+
+The example can be run in the interactive shell just as the example
+from 8.1.
+
+##### Command-line argument parsing
+
+See `code/examples/8.2/cmdline.rkt`.
+
+The `numbered-flags/f` and `list/o` macros are defined in
+`code/dsls/cmdline-ee/main.rkt`.
+
+##### Typed Racket
+
+See `code/examples/8.2/typed-racket.rkt`.
 
 ## Adding your own macro
 

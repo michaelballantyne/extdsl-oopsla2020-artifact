@@ -16,7 +16,7 @@
       (raise-ast srcloc exn from)))
 
 (module+ test
-  (require rackunit racket/list)
+  (require rackunit racket/list syntax/srcloc)
 
   (define example-stx
     (syntax->list #'(raise e1 from e2)))
@@ -24,10 +24,6 @@
   (check-equal?
     (parse-result-value (parse raise example-stx))
     (raise-ast
-      (srcloc (syntax-source (car example-stx))
-              22   ; line (1 indexed)
-              21   ; column (0 indexed)
-              526  ; character
-              16)  ; span in characters
+      (apply build-source-location example-stx)
       (second example-stx)
       (fourth example-stx))))
