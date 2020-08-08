@@ -2,6 +2,7 @@
 
 (require (for-syntax syntax/parse) racket/pretty rackunit (only-in racket-peg-ee parse parse-result?))
 
+; helper macros for printing the compiled code
 (define-for-syntax expanded #f)
 (define-syntax expand
   (syntax-parser
@@ -15,9 +16,11 @@
   (module example racket/base
     (require racket-peg-ee)
     (provide comp-op)
+    ; the production to be optimized
     (define-peg comp-op
                 (alt "==" ">=" "<=" "<" ">" "!=" "in" "not" "is"))))
 
+; print the compiled module, showing how the production is compliled.
 (show-expanded)
 
 (require 'example)
