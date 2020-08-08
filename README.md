@@ -270,7 +270,36 @@ The exports at lines 646-647 of the paper are at the top of
 
 #### 7.1
 
+The code on lines 725-730 is in `code/examples/7.1/raise-1.rkt`, lines
+11-15. The example uses tokens represented as Racket syntax objects in
+order to retain source location information. The
+`(use-literal-token-interpretation syntax-token)` declaration makes
+string literals in PEG expressions parse syntax objects containing
+symbols with the same string value.
+
+The implementation of the `define-peg-ast` form from figure 10 (lines
+758-767) is in `code/examples/7.1/define-peg-ast.rkt`.
+
+Finally, the concise definition of the `raise` production using
+`define-peg-ast` from lines 739-740 is in
+`code/examples/7.1/raise-2.rkt`
+
 #### 7.2
+
+All code from this section is in
+`code/examples/7.2/return-example.rkt`. The implementation's token
+interface is richer than that presented in the paper. Rather than simply
+returning a boolean indicating whether the token matched, token
+specification functions return two values:
+
+1. either `#f` indicating failure, or a value to be used as the semantic
+   value of the `token` PEG expression
+2. a source location structure, or `#f` indicating no source location
+   information is available.
+
+The version of `keyword` in the artifact thus returns the
+`expected-name` when the token matches, along with `#f` to indicate no
+source location information is available.
 
 ### Section 8
 

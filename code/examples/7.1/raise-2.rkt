@@ -5,6 +5,7 @@
 
 (use-literal-token-interpretation syntax-token)
 
+; stub `test` production
 (define-peg test (alt "e1" "e2"))
 
 (define-peg-ast raise raise-ast
@@ -20,9 +21,9 @@
     (parse-result-value (parse raise example-stx))
     (raise-ast
       (srcloc (syntax-source (car example-stx))
-              17   ; line (1 indexed)
+              18   ; line (1 indexed)
               21   ; column (0 indexed)
-              354  ; character
+              379  ; character
               16)  ; span in characters
       (second example-stx)
       (fourth example-stx))))

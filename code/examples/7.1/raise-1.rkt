@@ -5,10 +5,11 @@
 (use-literal-token-interpretation syntax-token)
 
 (struct ast [srcloc] #:transparent)
-(struct raise-ast ast [exn from] #:transparent) ; a structure with a super type, `ast`
 
+; stub `test` production
 (define-peg test (alt "e1" "e2"))
 
+(struct raise-ast ast [exn from] #:transparent) ; a structure with a super type, `ast`
 (define-peg raise
   (=> (:src-span srcloc
          (seq "raise" (? (seq (: exn test) (? (seq "from" (: from test)))))))
@@ -24,9 +25,9 @@
     (parse-result-value (parse raise example-stx))
     (raise-ast
       (srcloc (syntax-source (car example-stx))
-              21   ; line (1 indexed)
+              22   ; line (1 indexed)
               21   ; column (0 indexed)
-              501  ; character
+              526  ; character
               16)  ; span in characters
       (second example-stx)
       (fourth example-stx))))
