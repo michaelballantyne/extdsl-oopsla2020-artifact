@@ -15,8 +15,10 @@ sudo apt install docker.io -y
 
 Then, the following commands will unzip the artifact, build a docker
 image with needed dependencies, and launch a container. Note that
-depending on your Docker configuration you may need to run the docker
-commands as root.
+some Docker configurations require Docker commands to be run as root
+(see <https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface>).
+If you get an error like "ERRO[0000] failed to dial gRPC: cannot connect to the Docker daemon...",
+you probably need to run as root.
 
 ```
 tar -xvjf 625.tar.bz2
