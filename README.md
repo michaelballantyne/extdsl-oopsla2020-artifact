@@ -39,6 +39,8 @@ Finally, this command runs all tests and examples:
 docker exec artifact625 /root/code/test.sh
 ```
 
+The output should include "274 tests passed" and "27 tests passed".
+
 The only dependencies beyond those included in the artifact
 archive are Docker and the `ubuntu:20.04` base Docker image that is
 downloaded when building our artifact's image.
