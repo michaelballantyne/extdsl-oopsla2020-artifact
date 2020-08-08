@@ -4,8 +4,8 @@ Our artifact is packaged as sources together with a Dockerfile that
 creates an appropriate execution environment.
 
 First, ensure you have a recent Docker installation. We tested these
-instructions with Docker Desktop 2.3.0.3 on Mac OS 10.14
-(https://www.docker.com/products/docker-desktop), and with version
+instructions with Docker Desktop (<https://www.docker.com/products/docker-desktop>) 2.3.0.3 on Mac OS 10.14,
+and with version
 `19.03.6-0ubuntu1~18.04.1` of the `docker.io` package on Ubuntu 18.04.4.
 Docker may be installed on Ubuntu with the command:
 
@@ -22,7 +22,8 @@ commands as root.
 tar -xvjf 625.tar.bz2
 cd 625
 docker build -t artifact625 ./
-docker create -ti --name artifact625 --network none --mount "type=bind,src=${PWD}/code,dst=/root/code" artifact625
+docker create -ti --name artifact625 --network none \
+  --mount "type=bind,src=${PWD}/code,dst=/root/code" artifact625
 docker start artifact625
 ```
 
@@ -183,8 +184,8 @@ The full details are covered in the scope sets paper.
 Figure 4 (218-231) provides a very simplified sketch of the architecture
 of Racket's `match` macro. The implementation of match can be found in
 the artifact Docker container at
-/usr/share/racket/collects/racket/match, or online at
-https://github.com/racket/racket/tree/v7.8/racket/collects/racket/match
+`/usr/share/racket/collects/racket/match`, or online at
+<https://github.com/racket/racket/tree/v7.8/racket/collects/racket/match>
 
 ### Section 4
 
