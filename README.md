@@ -68,7 +68,7 @@ paper:
 
 * `ee-lib` is the library that implements our new syntax system API.
 * `dsls` contains the implementations of our case study DSLs. Each DSL
-  folder has an ARTIFACT.md file that describes its code.
+  folder has an ARTIFACT.md file directly inside that describes its code.
 
    | Example 	      |	   Directory |
    | ---------------- | ------------ |
@@ -115,9 +115,9 @@ Most code snippets in the paper correspond either to an example in
 `code/examples`, or to part of the PEG DSL implementation in
 `code/dsls/racket-peg-ee`.
 
-Note that the code in the paper often differs slightly from the
-corresponding running code in order to simplify the presentation. These
-differences are explained with each example. The excerpts in the
+The example code in the paper differs slightly from the running code in
+the artifact in order to simplify the presentation. Each example comes
+with an explanation of the relevant differences. The excerpts in the
 submitted version of the paper also have several typos we have since
 corrected.
 
@@ -143,10 +143,11 @@ hygiene ensures the macro behaves as intended.
 
 #### 2.2
 
-The annotated syntax in figure 157-165 conveys the intuition behind the
-scope sets algorithm. The program `code/examples/2.2/scopes.rkt` expands
-the example from lines 157-165 to show the real scopes annotated by the
-expander. The scopes that correspond to the figure are as follows:
+The annotated syntax in figure 3 (lines 197-203) conveys the intuition
+behind the scope sets algorithm. The program
+`code/examples/2.2/scopes.rkt` expands the example from lines 157-165 to
+show the real scopes annotated by the expander. The scopes that
+correspond to the figure are as follows:
 
 | scope from scopes.rkt output | scope in figure |
 | ---------------------------- | ----------------|
@@ -158,24 +159,17 @@ expander. The scopes that correspond to the figure are as follows:
 | 12 | let3 |
 
 The full scope sets algorithm contains a number of optimizations and
-edge cases that make the real scope annotations somewhat different:
+edge cases that make the real scope annotations differ:
 
-* The scope sets model calls for use-site scopes, but the Racket
-expander does not apply them in cases where their effect is subsumed
-by other scopes. In this case the `match-list` macro is defined in a
-different context than its use, so the expander does not apply a
-use-site scope to the use.
-* After resolving a reference to a local variable, the Racket expander
-removes all scopes from the reference that are not needed in order for
-it to refer to the binder. Thus in the final expansion, references to
-the local `v` and `match-list-error` variables do not include scopes for
-nested `let`s they are contained in.
+* In this case, the effect of the use-site scope is subsumed by others,
+so the expander does not apply it.
+* After resolving a references to local variables such as `v` and
+  `match-list-binder`, the expander removes all scopes from the
+reference that are not needed in order for it to refer to the binder.
 * The example in the paper doesn't show scopes due to the expansion of
-`cond`. Each `cond` clause body expands to a `let`, so identifiers
-within these clauses have extra scopes (7, 9, and 12).
+`cond`.
 * The expander also applies "inside-edge" scopes, which are irrelevant
-to this example. These are scopes 1, 4, 5, 7, 19, and 13 in the
-program output.
+to this example.
 
 These details are unimportant to the example and muddy the intuitive
 understanding of scope sets, so we present a simplified view in the figure.
@@ -253,7 +247,7 @@ places in the full PEG DSL implementation:
 * Figure lines 1-2 correspond to the literals definition in
   `code/dsls/racket-peg-ee/private/forms.rkt`
 * Lines 5-6 are implemented in
-  `code/dsls/racket-peg-ee/private/forms.rkt`. The implementation is
+  `code/dsls/racket-peg-ee/private/env-rep.rkt`. The implementation is
 somewhat more complex because it also defines interfaces using
 `racket/generic` to allow other DSLs to create bindings that act as PEG
 non-terminals or PEG macros while also having other behaviors in the other
