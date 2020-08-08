@@ -19,4 +19,4 @@ install dsls/type-expander
 
 raco setup --pkgs ee-lib cmdline-ee minikanren-ee racket-peg-ee linea shell-pipeline rash type-expander
 
-raco make examples/*
+raco make examples/**.rkt
