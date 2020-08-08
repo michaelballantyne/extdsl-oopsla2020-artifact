@@ -68,7 +68,7 @@ paper:
 
 * `ee-lib` is the library that implements our new syntax system API.
 * `dsls` contains the implementations of our case study DSLs. Each DSL
-  has a DEVELOPING.md file that describes its code.
+  folder has an ARTIFACT.md file that describes its code.
 
    | Example 	      |	   Directory |
    | ---------------- | ------------ |
