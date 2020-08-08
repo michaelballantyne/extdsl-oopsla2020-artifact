@@ -5,7 +5,13 @@ creates an appropriate execution environment.
 
 First, ensure you have a recent Docker installation. We tested these
 instructions with Docker Desktop 2.3.0.3 on Mac OS 10.14
-(https://www.docker.com/products/docker-desktop).
+(https://www.docker.com/products/docker-desktop), and with version
+`19.03.6-0ubuntu1~18.04.1` of the `docker.io` package on Ubuntu 18.04.4.
+Docker may be installed on Ubuntu with the command:
+
+```
+sudo apt install docker.io -y
+```
 
 Then, the following commands will unzip the artifact, build a docker
 image with needed dependencies, and launch a container. Note that
