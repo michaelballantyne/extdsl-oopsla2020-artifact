@@ -1,6 +1,36 @@
-#lang racket/base
+#lang racket/load
 
-(require racket-peg-ee)
+(require (for-syntax syntax/parse) racket/pretty rackunit (only-in racket-peg-ee parse parse-result?))
 
-(define-peg comp-op
-  (alt "==" ">=" "<=" "<" ">" "!=" "in" "not" "is"))
+(define-for-syntax expanded #f)
+(define-syntax expand
+  (syntax-parser
+    [(_ m)
+     (set! expanded (local-expand #'m 'top-level '()))
+     expanded]))
+(define-syntax (show-expanded stx)
+  #`(pretty-print '#,expanded))
+
+(expand
+  (module example racket/base
+    (require racket-peg-ee)
+    (provide comp-op)
+    (define-peg comp-op
+                (alt "==" ">=" "<=" "<" ">" "!=" "in" "not" "is"))))
+
+(show-expanded)
+
+(require 'example)
+
+(for/list ([s '("==" ">=" "<=" "<" ">" "!=" "in" "not" "is")])
+  (check-true
+    (parse-result? (parse comp-op s))))
+
+(check-exn #rx"parse failed"
+           (lambda ()
+             (parse comp-op "=")))
+
+(check-exn #rx"parse failed"
+           (lambda ()
+             (parse comp-op "foo")))
+
