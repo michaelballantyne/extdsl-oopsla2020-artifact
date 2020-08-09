@@ -382,7 +382,62 @@ The `numbered-flags/f` and `list/o` macros are defined in
 
 See `code/examples/8.2/typed-racket.rkt`.
 
-## Adding your own macro
+## Adding a piece of syntactic sugar
+
+This section provides instructions for adding an element of syntactic
+sugar to the PEG DSL to suggest how you might explore the artifact
+further.
+
+It is common to parse an optional sequence of elements, as in the `raise`
+production in `code/examples/7.1/raise-2.rkt`. Currently `?` takes only
+one subexpression, so an optional sequence within an overall sequence
+needs to be written:
+
+```
+(seq "a" (? (seq "b" "c")) "d")
+```
+
+We can change `?` to accept multiple elements in its body in an
+implicit sequence. Then we can write:
+
+```
+(seq "a" (? "b" "c") "d")
+```
+
+To make this change, add a new, sugary definition of `?` at the bottom
+of `code/dsls/racket-peg-ee/main.rkt`:
+
+```
+(define-peg-syntax-parser new-?
+  [(_ p:peg ...+) #'(? (seq p ...))])
+```
+
+Then, change the `?` part of the provide at the top of the file (line
+15) to:
+
+```
+(rename-out [new-? ?])
+```
+
+Try out the change by editing `code/examples/7.1/raise-2.rkt`, replacing
+the existing expression:
+
+```
+(seq "raise" (? (seq (: exn test) (? (seq "from" (: from test))))))
+```
+
+with:
+
+```
+(seq "raise" (? (: exn test) (? "from" (: from test))))
+```
+
+To see if it worked, rebuild and test `raise-2.rkt` by running these commands in the container:
+
+```
+raco make /root/code/examples/7.1/raise-2.rkt
+raco test /root/code/examples/7.1/raise-2.rkt
+```
 
 ## Tear down
 
