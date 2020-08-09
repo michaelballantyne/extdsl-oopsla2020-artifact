@@ -4,7 +4,7 @@ Our artifact is packaged as sources together with a Dockerfile that
 creates an appropriate execution environment.
 
 First, ensure you have a recent Docker installation. We tested these
-instructions with Docker Desktop (<https://www.docker.com/products/docker-desktop>) 2.3.0.3 on Mac OS 10.14,
+instructions with [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.3.0.3 on Mac OS 10.14,
 and with version
 `19.03.6-0ubuntu1~18.04.1` of the `docker.io` package on Ubuntu 18.04.4.
 Docker may be installed on Ubuntu with the command:
@@ -123,11 +123,12 @@ corrected.
 
 ### Section 1
 
-The examples in section 1 show uses of Racket's existing `match`
-feature and a hypothetical `css` extension that could be defined using
-Racket's existing `define-match-expander` (and ad-hoc DSL extensibility
-feature). Because these examples are merely suggestive, we do not
-provide an implementation in the artifact.
+The examples in section 1 show uses of Racket's existing `match` feature
+and a hypothetical `css` extension that could be defined using `match`'s
+existing ad-hoc DSL extensibility feature, [`define-match-expander`]
+(https://docs.racket-lang.org/reference/match.html?q=define-match-expander#%28form._%28%28lib._racket%2Fmatch..rkt%29._define-match-expander%29%29).
+Because these examples are merely suggestive, we do not provide an
+implementation in the artifact.
 
 ### Section 2
 
@@ -182,6 +183,12 @@ of Racket's `match` macro. The implementation of match can be found in
 the artifact Docker container at
 `/usr/share/racket/collects/racket/match`, or online at
 <https://github.com/racket/racket/tree/v7.8/racket/collects/racket/match>
+
+### Section 3
+
+#### 3.2
+
+The API described here is implemented in `code/ee-lib/main.rkt`.
 
 ### Section 4
 
@@ -247,7 +254,7 @@ places in the full PEG DSL implementation:
 * Figure lines 1-2 correspond to the literals definition in
   `code/dsls/racket-peg-ee/private/forms.rkt`
 * Lines 5-6 are implemented in
-  `code/dsls/racket-peg-ee/private/env-rep.rkt`. The implementation is
+  `code/dsls/racket-peg-ee/private/env-reps.rkt`. The implementation is
 somewhat more complex because it also defines interfaces using
 `racket/generic` to allow other DSLs to create bindings that act as PEG
 non-terminals or PEG macros while also having other behaviors in the other
@@ -271,7 +278,7 @@ The exports at lines 646-647 of the paper are at the top of
 #### 7.1
 
 The code on lines 725-730 is in `code/examples/7.1/raise-1.rkt`, lines
-11-15. The example uses tokens represented as Racket syntax objects in
+12-16. The example uses tokens represented as Racket syntax objects in
 order to retain source location information. The
 `(use-literal-token-interpretation syntax-token)` declaration makes
 string literals in PEG expressions parse syntax objects containing
@@ -313,7 +320,7 @@ See `code/examples/8.1/minikanren.rkt`.
 
 Our miniKanren implementation returns the results of the query in a
 different order from that shown in the paper. The order is not
-semantically relevant.
+semantically significant.
 
 ##### Rash
 See `code/examples/8.1/rash.rkt`.
@@ -348,12 +355,12 @@ See `code/examples/8.1/typed-racket.rkt`.
 
 Lines 914-916: see `code/examples/8.2/minikanren-macro.rkt`. The
 `defrel/match` syntax is defined in `code/dsls/minikanren-ee/main.rkt`.
-The presentation in the paper uses a match syntax similar to that
+The presentation in the paper uses a pattern syntax similar to that
 supported by Racket's `match` form, which we expect to be most familiar
 to readers. The real DSL in the artifact uses a different syntax
 inspired by a pattern matcher written for Chez Scheme.
 
-The compile-time error mentioned on lines 929-930 is tested in
+The compile-time error behavior mentioned on lines 929-930 is tested in
 `code/examples/8.2/minikanren-compile-time-errors.rkt`.
 
 `code/examples/8.2/minikanren-program-transformation.rkt` demonstrates
@@ -369,7 +376,7 @@ the query from line 945 terminates.
 See `code/examples/8.2/rash.rkt`.
 
 The example can be run in the interactive shell just as the example
-from 8.1.
+from 8.1 using `/root/.racket/7.8/bin/rash-repl`.
 
 ##### Command-line argument parsing
 
