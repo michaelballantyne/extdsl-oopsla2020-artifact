@@ -19,7 +19,7 @@ install dsls/type-expander
 
 raco setup --pkgs ee-lib cmdline-ee minikanren-ee racket-peg-ee linea shell-pipeline rash type-expander
 
-for f in $(find ./examples -name *.rkt)
+for f in $(find ./examples -not -path '*/\.*' -name *.rkt)
 do
   raco make $f
 done
