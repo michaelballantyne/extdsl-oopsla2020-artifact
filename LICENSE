@@ -1,0 +1,16 @@
+This artifact consists of open source code distributed under a variety of licenses: LGPL, Apache 2, MIT, BSD, ISC, CC0, and public domain.
+
+The programs created specifically for this project are MIT licensed, as specified by LICENSE files in their respective directories:
+
+* `code/examples`
+* `code/ee-lib`
+* `code/dsls/cmdline-ee`
+* `code/dsls/minikanren-ee`
+* `code/dsls/racket-peg-ee`
+
+The existing DSLs we modified as case studies were licensed LGPL 3, so our changes are as well. See the LICENSE files in:
+
+* `code/dsls/racket-rash`
+* `code/dsls/type-expander`
+
+Our code relies on the Racket distribution and a variety of Racket packages, which this artifact distributes in the `dependencies` folder. The Racket distribution includes LGPL, Apache 2, and MIT components; see `dependencies/racket-7.8-x86_64-linux-natipkg.sh.LICENSE` for details. For the licenses of the Racket packages, see the .LICENSE files in `dependencies/racket-packages/pkgs`.

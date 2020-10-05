@@ -462,3 +462,19 @@ If you would like to remove the base Ubuntu 20.04 image as well, run:
 ```
 docker image rm ubuntu:20.04
 ```
+
+## Changes compared to the evaluated version of the artifact
+
+The original artifact included copies of several Racket package
+dependencies that had been released without a license. This version of
+the artifact uses updated, licensed versions of several Racket packages:
+
+- `kw-utils`
+- `mutable-match-lambda`
+- `pretty-format`
+- `syntax-macro-lang`
+
+The original version also depended on the unlicensed `version-case`
+package in the test file `code/dsls/type-expander/test/test-contracts-to-types.rkt`.
+This version eliminates that dependency via a small modification to the
+test file that does not change the meaning of the tests.

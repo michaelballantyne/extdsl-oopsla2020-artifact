@@ -1,0 +1,35 @@
+scribble-enhanced
+
+Parts of this software were initially written as part of a project at
+Cortus, S.A.S. which can be reached at:
+    Cortus S.A.S., 97 Rue de Freyr, 34000 Montpellier, France.
+
+This software is licensed under the GNU Lesser General Public License (LGPL).
+
+This license has been chosen in order to make it possible to integrate
+the type-expander library with Typed/Racket
+(https://github.com/racket/typed-racket) and/or Racket
+(https://github.com/racket/racket), which are both under the LGPL license.
+
+The original repository from which this package has been extracted
+(https://github.com/jsmaniac/phc, see the
+fork-from-github-jsmaniac-phc tag) was under a double license (LGPL
+and BSD). This choice was made to allow integrating code with Racket
+(LGPL) and Typed/Racket (LGPL) as well as with the Nanopass Compiler
+Framework (BSD, https://github.com/akeep/nanopass-framework). The BSD
+license has been dropped for this package (scribble-enhanced) because
+it now contains modified code from the scribble library
+(https://github.com/racket/scribble/), which is licensed under the
+LGPL license.
+
+----
+
+This package is distributed under the GNU Lesser General Public
+License (LGPL).  This means that you can link scribble-enhanced into proprietary
+applications, provided you follow the rules stated in the LGPL.  You
+can also modify this package; if you distribute a modified version,
+you must distribute it under the terms of the LGPL, which in
+particular means that you must release the source code for the
+modified software.  See http://www.gnu.org/copyleft/lesser.html
+for more information.
+
